@@ -1,0 +1,2 @@
+dataset,market,total_orders,total_revenue,aov,avg_rating,corr_rating_vs_orders(shop_level),corr_rating_vs_aov(shop_level),corr_delivery_time_vs_rating,corr_prep_time_vs_rating
+Chowdeck,Nigeria,3061,25226000,9413.04835021235,3.8969291081345965,0.05243075711171144,0.13873459538429517,0.04641101534413628,-0.01744109116539774
