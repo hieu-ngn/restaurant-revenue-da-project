@@ -3,15 +3,12 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 venv/
+.venv/
 .env
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Data lớn (bỏ comment nếu không muốn đẩy file gốc lên GitHub)
-# data/raw/*.xlsx
-# data/raw/*.csv
 
 # Power BI temp files
 *.pbix.bak
