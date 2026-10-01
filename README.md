@@ -62,5 +62,5 @@ Chowdeck tách riêng **AOV nhà hàng** (từ `Sub Total`) và **AOV khách hà
 - Mọi kết luận chỉ dừng ở mức tương quan (correlation), không khẳng định quan hệ nhân quả (causation).
 
 ## Thành viên nhóm
-- [Tên bạn]
-- [Tên bạn cùng làm]
+- Nguyễn Minh Hiếu
+- Trần Thị Huyền Trang
