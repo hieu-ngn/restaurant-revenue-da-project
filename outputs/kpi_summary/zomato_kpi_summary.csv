@@ -1,0 +1,2 @@
+dataset,market,total_orders_delivered,total_revenue,aov,pct_orders_with_discount,aov_with_discount,aov_without_discount,corr_discount_vs_bill_subtotal,pct_rating_available
+Zomato,India (Delhi NCR),21131,14423379.76,682.5696729922862,61.11400312337324,665.1053019978317,710.0170244614823,0.5037908854052761,11.683316917592984
