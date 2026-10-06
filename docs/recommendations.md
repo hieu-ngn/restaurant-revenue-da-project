@@ -58,7 +58,7 @@
 ### 8. Cải thiện chất lượng dữ liệu *(dữ liệu cần thu thập)*
 | Thiếu gì | Vì sao quan trọng |
 |---|---|
-| Timestamp đúng thứ tự (Chowdeck lỗi 29%) | Phân tích thời gian giao hàng và độ trễ đáng tin cậy |
+| Timestamp đúng thứ tự (Chowdeck lỗi ≈ 28%, và ở các đơn này giờ giao bị ghi trùng giờ dự kiến) | Phân tích thời gian giao hàng và độ trễ đáng tin cậy |
 | Rating cho nhiều đơn hơn (Zomato chỉ 11,8%) | Đánh giá được mối liên hệ Rating và doanh thu |
 | Chi phí, hoa hồng, chi phí khuyến mãi | Chuyển từ phân tích doanh thu sang **lợi nhuận** |
 | Nhóm đối chứng và thông tin chiến dịch | Đánh giá nhân quả của khuyến mãi |
