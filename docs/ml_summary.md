@@ -31,7 +31,7 @@ Model dùng: **Random Forest Classifier** (200 cây, max_depth=8, class_weight='
 
 → **Nhất quán với Bước 6**: Rating có ảnh hưởng yếu nhất, trong khi Nhóm món và Nhà hàng là 2 yếu tố nổi bật nhất (chiếm hơn 56% tổng mức độ quan trọng).
 
-> ⚠️ **Lưu ý khi diễn giải:** Nhóm món và nhà hàng gần như quyết định mức giá của món (Food ≈ ₦11.040/đơn, Drinks ≈ ₦5.263/đơn), nên việc hai yếu tố này dự đoán tốt "đơn giá trị cao" phần lớn là điều hiển nhiên, chưa phải phát hiện mới. Thông tin đáng chú ý hơn là các yếu tố còn lại (Rating, khu vực, thứ trong tuần, khung giờ) đều có độ quan trọng thấp.
+> ⚠️ **Lưu ý khi diễn giải:** Nhóm món và nhà hàng gần như quyết định mức giá của món (Food ≈ ₦11.040/đơn, Drinks ≈ ₦5.263/đơn), nên việc hai yếu tố này dự đoán tốt "đơn giá trị cao" phần lớn là điều hiển nhiên, chưa phải phát hiện mới. Mỗi shop thuộc đúng một nhóm món nên `Shop Name` một phần chỉ lặp lại thông tin của `Order Category`: khi kiểm soát nhóm món, các shop không khác nhau về giá trị đơn (ANOVA p = 0,67–0,70 trong từng nhóm), nên mức quan trọng 22,5% của `Shop Name` không nên đọc như "tên nhà hàng quyết định doanh thu". Thông tin đáng chú ý hơn là các yếu tố còn lại (Rating, khu vực, thứ trong tuần, khung giờ) đều có độ quan trọng thấp.
 
 **Cross-Validation (5-fold):** Accuracy trung bình **76.2% (± 1.1%)** qua 5 lần chia dữ liệu khác nhau — rất ổn định, xác nhận kết quả 77.7% đo 1 lần không phải do may rủi của cách chia Train/Test. (Đã chạy lại và kiểm chứng trong `notebooks/03_chowdeck_ml.ipynb`; accuracy từng fold: 0.750, 0.771, 0.778, 0.750, 0.763.)
 

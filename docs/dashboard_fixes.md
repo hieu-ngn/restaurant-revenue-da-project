@@ -11,13 +11,13 @@ Các số liệu bên dưới đã được kiểm tra lại trên `data/clean/c
 | Yếu tố | Loại | Mức độ liên hệ | Bằng chứng trong dữ liệu | Diễn giải |
 |---|---|---|---|---|
 | Rating | Gián tiếp | Rất yếu / Không rõ ràng | Tương quan cấp nhà hàng: 0,05 với số đơn, 0,14 với AOV | Dữ liệu không ủng hộ giả thuyết "rating cao → bán chạy hơn" ở dataset này |
-| Khung giờ / Ngày trong tuần | Gián tiếp | **Không có bằng chứng rõ ràng** | Khác biệt giá trị đơn giữa các giờ (ANOVA p = 0,56) và giữa các thứ (p = 0,50) không có ý nghĩa thống kê | Dao động giữa các giờ/thứ nằm trong mức biến động ngẫu nhiên; chưa đủ cơ sở kết luận có "đỉnh doanh thu" hay ngày nào nhỉnh hơn |
+| Khung giờ / Ngày trong tuần | Gián tiếp | **Không có bằng chứng rõ ràng** | Khác biệt giá trị đơn giữa các giờ (ANOVA p = 0,56) và giữa các thứ (p = 0,50) không có ý nghĩa thống kê; kiểm soát nhóm món vẫn p > 0,6 | Dao động giữa các giờ/thứ nằm trong mức biến động ngẫu nhiên; chưa đủ cơ sở kết luận có "đỉnh doanh thu" hay ngày nào nhỉnh hơn |
 | Khu vực giao hàng | Gián tiếp | **Không có bằng chứng rõ ràng** | ANOVA p = 0,55; khu vực cao nhất chỉ gấp ≈ 1,2 lần khu vực thấp nhất; không khác biệt trong từng nhóm món (p > 0,19) | Chênh lệch giữa các khu vực chưa vượt quá mức dao động ngẫu nhiên |
-| Nhà hàng (Shop Name) | Gián tiếp (qua giá/AOV) | Mạnh | ANOVA p < 0,001 | Khác biệt menu/giá giữa các nhà hàng là yếu tố tách bạch rõ nhất |
-| Nhóm món (Order Category) | Gián tiếp (qua giá/AOV) | Mạnh | Số đơn mỗi nhóm gần bằng nhau (985–1.051) nhưng AOV khác xa: Food ₦11.040, Pastries ₦8.605, Drinks ₦5.263; Food chiếm 43% doanh thu | Chênh lệch doanh thu giữa các nhóm đến chủ yếu từ AOV, không phải số đơn |
+| Nhà hàng (Shop Name) | Gián tiếp (qua giá/AOV) | **Yếu khi đã kiểm soát nhóm món** | Trong từng nhóm món, các shop không khác nhau về giá trị đơn (ANOVA p = 0,67 Food; 0,70 Drinks; 0,69 Pastries); thêm Shop Name vào mô hình chỉ tăng R² từ 9,0% lên 9,2% | Chênh lệch doanh thu giữa các shop chủ yếu do mỗi shop thuộc một nhóm món khác nhau. Bản cũ ghi "Mạnh" là sai (p < 0,001 trước đó chỉ phản ánh hiệu ứng nhóm món) |
+| Nhóm món (Order Category) | Gián tiếp (qua giá/AOV) | Mạnh nhất trong các yếu tố có sẵn (nhưng chỉ giải thích ≈ 9% biến thiên giá trị đơn) | Số đơn mỗi nhóm gần bằng nhau (985–1.051) nhưng AOV khác xa: Food ₦11.040, Pastries ₦8.605, Drinks ₦5.263; Food chiếm 43% doanh thu | Chênh lệch doanh thu giữa các nhóm đến chủ yếu từ AOV, không phải số đơn |
 | Khuyến mãi (Zomato) | Gián tiếp | Có liên hệ, chưa rõ nhân quả | 61,1% đơn có khuyến mãi; AOV thực nhận ₹665 so với ₹710; hóa đơn gốc trung bình ₹797 so với ₹676 | Đơn có khuyến mãi đi cùng hóa đơn gốc lớn hơn nhưng doanh thu thực nhận mỗi đơn thấp hơn. Chưa thể kết luận khuyến mãi tạo thêm đơn vì không có nhóm đối chứng; tương quan 0,50 giữa tiền giảm và hóa đơn một phần mang tính cơ học |
 
-**Gỡ bỏ** các câu: "Khuyến mãi kéo thêm đơn", "Food áp đảo hoàn toàn", "các khu vực top đầu (Ikeja, Mushin) áp đảo", "nhỉnh hơn vào Thứ Tư, Thứ Năm".
+**Gỡ bỏ** các câu (và sửa dòng "Nhà hàng = Mạnh" như bảng trên): "Khuyến mãi kéo thêm đơn", "Food áp đảo hoàn toàn", "các khu vực top đầu (Ikeja, Mushin) áp đảo", "nhỉnh hơn vào Thứ Tư, Thứ Năm".
 
 Lưu ý về phân loại: trong khung bài của bạn, yếu tố **trực tiếp** là Số đơn, AOV, giá món. Nhóm món và nhà hàng tác động đến doanh thu **thông qua** giá/AOV nên nên xếp là gián tiếp.
 
