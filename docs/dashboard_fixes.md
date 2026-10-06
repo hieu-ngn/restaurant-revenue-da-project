@@ -54,7 +54,20 @@ DIVIDE(
 )
 ```
 
-Giá trị đúng phải ra: **71,6%** (timestamp hợp lệ), **61,1%** (đơn có khuyến mãi), **42,7%** (đơn giao trễ), **26%** (tỷ trọng top 3 shop).
+Giá trị đúng phải ra: **71,6%** (timestamp hợp lệ), **61,1%** (đơn có khuyến mãi), **26%** (tỷ trọng top 3 shop).
+
+**Riêng "% đơn giao trễ" của Chowdeck:** thẻ hiện tại (≈ 43%) đang tính trên cả 870 đơn timestamp lỗi mà `delay_min` ≈ 0, nên bị thấp giả. Hãy tính **chỉ trên đơn hợp lệ**, kết quả đúng là **59,6%** (và trễ trung bình 5,5 phút thay vì 3,95):
+
+```DAX
+% Đơn giao trễ (hợp lệ) =
+VAR valid = FILTER(chowdeck_clean, chowdeck_clean[time_sequence_valid] = TRUE())
+RETURN DIVIDE(COUNTROWS(FILTER(valid, chowdeck_clean[delay_min] > 0)), COUNTROWS(valid))
+
+Trễ TB (phút, hợp lệ) =
+CALCULATE(AVERAGE(chowdeck_clean[delay_min]), chowdeck_clean[time_sequence_valid] = TRUE())
+```
+
+Tương tự, nên lọc `time_sequence_valid = TRUE` cho mọi biểu đồ về thời gian giao hàng/độ trễ và ghi chú trên trang.
 
 ### B3. Thẻ "Rating trung bình = 3,92" khác dữ liệu (3,897)
 

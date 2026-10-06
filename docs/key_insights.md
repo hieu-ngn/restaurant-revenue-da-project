@@ -58,8 +58,10 @@ Doanh thu = Số đơn × AOV. Nhóm yếu tố được phân loại theo cách
 - Số đơn theo 4 khung giờ (0–5h, 6–11h, 12–17h, 18–23h) khá đều: 745, 740, 799, 777 đơn.
 
 ### Insight 5: Vận hành, nhưng cần dữ liệu đáng tin hơn
-- Thời gian chuẩn bị trung bình ≈ 10,5 phút; thời gian giao ≈ 59,7 phút; 42,7% đơn giao sau thời điểm dự kiến.
-- **29% đơn có timestamp sai thứ tự**, nên các chỉ số thời gian chỉ đáng tin trên phần còn lại.
+- Thời gian chuẩn bị trung bình ≈ 10,5 phút; thời gian giao ≈ 61,3 phút (tính trên đơn timestamp hợp lệ).
+- **≈ 28% đơn (870/3.061) có timestamp sai thứ tự.** Ở nhóm này `delay_min` bằng đúng 0 ở 99,4% dòng (giờ giao trùng giờ dự kiến), nên không phản ánh độ trễ thật. Các KPI độ trễ cũ (42,7% đơn trễ, trễ trung bình 3,95 phút) bị **pha loãng** bởi nhóm này.
+- **Trên đơn có timestamp hợp lệ (2.191 đơn): 59,6% giao sau thời điểm dự kiến, trễ trung bình 5,5 phút (trung vị 3 phút).** Đây là con số nên dùng.
+- Trên đơn hợp lệ, tương quan của thời gian giao, thời gian chuẩn bị và độ trễ với Rating đều gần 0 (0,02; −0,02; 0,06).
 - **Bất thường cần kiểm tra:** trong các đơn có timestamp hợp lệ, đơn giao trễ lại có Rating **cao hơn** (4,10) đơn không trễ (3,82). Điều này trái trực giác nên **không dùng làm insight**; có thể do cách tính `delay_min` hoặc do dữ liệu mô phỏng.
 
 ### Insight 6: Doanh thu tập trung vào một nhóm nhỏ tài khoản
@@ -89,6 +91,7 @@ Doanh thu = Số đơn × AOV. Nhóm yếu tố được phân loại theo cách
 ### Insight 11: Đơn giao thành công gần như tuyệt đối, và Rating quá thưa để kết luận
 - 99,1% đơn `Delivered`; 0,74% bị `Rejected`.
 - Chỉ 11,8% đơn có Rating (trung bình 4,36), tương quan 0,06 với hóa đơn. Mẫu quá thưa để rút ra kết luận.
+- Đơn bị từ chối (`Rejected`) có thời gian chuẩn bị trung bình 15,5 phút (chỉ 61 đơn có dữ liệu KPT), **không dài hơn** đơn `Delivered` (17,3 phút). Không có bằng chứng bếp chậm đi cùng việc đơn bị từ chối, nhưng mẫu nhỏ.
 - 33,4% khách hàng đặt từ 2 đơn trở lên trong 5 tháng; nhóm 10% khách chi nhiều nhất tạo 37% doanh thu.
 
 ---
@@ -97,7 +100,7 @@ Doanh thu = Số đơn × AOV. Nhóm yếu tố được phân loại theo cách
 
 - Khuyến mãi có tạo thêm đơn hay không (thiếu nhóm đối chứng).
 - Yếu tố nào ảnh hưởng đến **lợi nhuận** (thiếu dữ liệu chi phí, hoa hồng, chi phí khuyến mãi).
-- Tác động của thời gian giao hàng lên Rating hoặc doanh thu (timestamp Chowdeck lỗi 29% và có kết quả bất thường).
+- Tác động của thời gian giao hàng lên Rating hoặc doanh thu (timestamp Chowdeck lỗi ≈ 28% và có kết quả bất thường).
 - Tác động của số lượng review (không có cột này).
 - Khách mới so với khách quay lại ở Chowdeck (không có ngày đăng ký).
 - Kết luận chung cho các nhà hàng khác: Chowdeck chỉ có 15 shop, Zomato chỉ 6 nhà hàng trong 5 tháng.

@@ -57,7 +57,7 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 │   ├── charts/         # Biểu đồ EDA & ML (PNG)
 │   └── kpi_summary/    # Bảng KPI tổng hợp mỗi dataset
 ├── powerbi/            # Dashboard Power BI (.pbix, PDF, ảnh chụp)
-├── report/             # Báo cáo & slide thuyết trình cuối — đang cập nhật
+├── report/             # Báo cáo (project_report.md) & outline thuyết trình (presentation_outline.md) — bản nháp
 └── requirements.txt
 ```
 
@@ -82,7 +82,7 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 - [x] Power BI dashboard
 - [x] Machine Learning (Random Forest + Cross-Validation + SHAP)
 - [x] Key insights & Business recommendations (`docs/key_insights.md`, `docs/recommendations.md`)
-- [ ] Báo cáo & thuyết trình cuối cùng
+- [ ] Báo cáo & thuyết trình cuối cùng (bản nháp đã có trong `report/`, cần rà soát sau khi sửa dashboard)
 
 ## Cách chạy lại notebook
 
@@ -104,7 +104,7 @@ Chowdeck tách riêng **AOV nhà hàng** (từ `Sub Total`) và **AOV khách hà
 
 ## Giới hạn dữ liệu (Limitations)
 
-- Chowdeck: 29% đơn có thứ tự timestamp giao hàng không hợp lệ (đã đánh dấu bằng cột `time_sequence_valid`, không xóa). Không có dữ liệu khuyến mãi, số lượng review hay đơn hủy. Đã lọc bỏ nhóm Groceries/Medications (Groceries là nhóm có doanh thu cao nhất trong dữ liệu gốc), chỉ giữ Food/Drinks & Beverages/Pastries. Rating chỉ có 5 mức (3,0–5,0), cần thận trọng khi diễn giải.
+- Chowdeck: ≈ 28–29% đơn có thứ tự timestamp giao hàng không hợp lệ (đã đánh dấu bằng cột `time_sequence_valid`, không xóa). Ở nhóm này `delay_min` ≈ 0 nên các KPI độ trễ chỉ tính trên đơn hợp lệ (`*_valid_only` trong `chowdeck_kpi_summary.csv`). Không có dữ liệu khuyến mãi, số lượng review hay đơn hủy. Đã lọc bỏ nhóm Groceries/Medications (Groceries là nhóm có doanh thu cao nhất trong dữ liệu gốc), chỉ giữ Food/Drinks & Beverages/Pastries. Rating chỉ có 5 mức (3,0–5,0), cần thận trọng khi diễn giải.
 - Zomato: Rating thiếu 88,3% (không điền giá trị giả). Chỉ 6 nhà hàng. Dữ liệu chỉ trong 5 tháng (09/2024–01/2025). Revenue/AOV chỉ tính trên đơn `Delivered`.
 - Không gộp 2 dataset ở tầng dữ liệu thô (khác tiền tệ, khác thị trường), chỉ so sánh ở mức KPI tổng hợp. Không cộng hay so sánh trực tiếp số tuyệt đối giữa ₦ và ₹.
 - Machine Learning: `Order Category` và `Shop Name` gần như quyết định mức giá nên đứng đầu về mức độ quan trọng là điều dễ hiểu, không phải phát hiện mới. Model chỉ dùng để xếp hạng tương đối giữa các yếu tố, không dùng để dự đoán chính xác từng đơn.
