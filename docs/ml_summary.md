@@ -13,27 +13,27 @@ Model dùng: **Random Forest Classifier** (200 cây, max_depth=8, class_weight='
 
 | Metric | Giá trị |
 |---|---|
-| Accuracy | 77.7% |
-| Precision | 83.3% |
-| Recall | 63.0% |
-| F1-score | 71.8% |
+| Accuracy | 77.5% |
+| Precision | 82.5% |
+| Recall | 63.4% |
+| F1-score | 71.7% |
 
 **Feature Importance (xếp hạng mức độ ảnh hưởng):**
-1. Order Category — 33.9%
-2. Shop Name — 22.5%
-3. Distance (km) — 9.6%
-4. Thời gian giao hàng — 8.9%
-5. Khung giờ đặt hàng — 6.7%
+1. Order Category — 35.4%
+2. Shop Name — 20.8%
+3. Distance (km) — 9.7%
+4. Thời gian giao hàng — 8.8%
+5. Khung giờ đặt hàng — 6.8%
 6. Thời gian chuẩn bị món — 6.4%
-7. Khu vực giao hàng — 4.6%
+7. Khu vực giao hàng — 4.7%
 8. Thứ trong tuần — 4.4%
-9. **Rating — 3.0% (thấp nhất)**
+9. **Rating — 3.1% (thấp nhất)**
 
 → **Nhất quán với Bước 6**: Rating có ảnh hưởng yếu nhất, trong khi Nhóm món và Nhà hàng là 2 yếu tố nổi bật nhất (chiếm hơn 56% tổng mức độ quan trọng).
 
-> ⚠️ **Lưu ý khi diễn giải:** Nhóm món và nhà hàng gần như quyết định mức giá của món (Food ≈ ₦11.040/đơn, Drinks ≈ ₦5.263/đơn), nên việc hai yếu tố này dự đoán tốt "đơn giá trị cao" phần lớn là điều hiển nhiên, chưa phải phát hiện mới. Mỗi shop thuộc đúng một nhóm món nên `Shop Name` một phần chỉ lặp lại thông tin của `Order Category`: khi kiểm soát nhóm món, các shop không khác nhau về giá trị đơn (ANOVA p = 0,67–0,70 trong từng nhóm), nên mức quan trọng 22,5% của `Shop Name` không nên đọc như "tên nhà hàng quyết định doanh thu". Thông tin đáng chú ý hơn là các yếu tố còn lại (Rating, khu vực, thứ trong tuần, khung giờ) đều có độ quan trọng thấp.
+> ⚠️ **Lưu ý khi diễn giải:** Nhóm món và nhà hàng gần như quyết định mức giá của món (Food ≈ ₦11.040/đơn, Drinks ≈ ₦5.263/đơn), nên việc hai yếu tố này dự đoán tốt "đơn giá trị cao" phần lớn là điều hiển nhiên, chưa phải phát hiện mới. Mỗi shop thuộc đúng một nhóm món nên `Shop Name` một phần chỉ lặp lại thông tin của `Order Category`: khi kiểm soát nhóm món, các shop không khác nhau về giá trị đơn (ANOVA p = 0,67–0,70 trong từng nhóm), nên mức quan trọng 20,8% của `Shop Name` không nên đọc như "tên nhà hàng quyết định doanh thu". Thông tin đáng chú ý hơn là các yếu tố còn lại (Rating, khu vực, thứ trong tuần, khung giờ) đều có độ quan trọng thấp.
 
-**Cross-Validation (5-fold):** Accuracy trung bình **76.2% (± 1.1%)** qua 5 lần chia dữ liệu khác nhau — rất ổn định, xác nhận kết quả 77.7% đo 1 lần không phải do may rủi của cách chia Train/Test. (Đã chạy lại và kiểm chứng trong `notebooks/03_chowdeck_ml.ipynb`; accuracy từng fold: 0.750, 0.771, 0.778, 0.750, 0.763.)
+**Cross-Validation (5-fold):** Accuracy trung bình **76.2% (± 1.0%)** qua 5 lần chia dữ liệu khác nhau — rất ổn định, xác nhận kết quả 77.5% đo 1 lần không phải do may rủi của cách chia Train/Test. (Đã chạy lại và kiểm chứng trong `notebooks/03_chowdeck_ml.ipynb`; accuracy từng fold: 0.750, 0.773, 0.775, 0.753, 0.760.)
 
 **SHAP Summary Plot** (`chart_ml_shap_summary_chowdeck.png`): cho biết thêm **chiều ảnh hưởng** của từng yếu tố số (Distance, prep_time, delivery_time, order_hour, Rating), ví dụ: thời gian chuẩn bị và khoảng cách thấp có xu hướng đi cùng xác suất "đơn giá trị cao" thấp hơn.
 
@@ -69,24 +69,24 @@ Model dùng: **Random Forest Classifier** (200 cây, max_depth=8, class_weight='
 
 | Metric | Giá trị |
 |---|---|
-| Accuracy | 68.7% |
-| Precision | 68.3% |
-| Recall | 69.3% |
-| F1-score | 68.8% |
+| Accuracy | 68.5% |
+| Precision | 68.2% |
+| Recall | 69.1% |
+| F1-score | 68.6% |
 
 **Feature Importance:**
-1. Thời gian chuẩn bị món (KPT) — 50.4%
-2. Tên nhà hàng — 11.2%
-3. Có khuyến mãi hay không — 10.3%
-4. Thời gian tài xế chờ — 8.3%
+1. Thời gian chuẩn bị món (KPT) — 50.5%
+2. Tên nhà hàng — 11.0%
+3. Có khuyến mãi hay không — 10.1%
+4. Thời gian tài xế chờ — 8.4%
 5. Khoảng cách giao hàng — 7.2%
 6. Khung giờ đặt hàng — 5.9%
-7. Thứ trong tuần — 3.4%
-8. Khu vực (Subzone) — 3.3%
+7. Thứ trong tuần — 3.5%
+8. Khu vực (Subzone) — 3.4%
 
 → KPT duration nổi bật nhất — đơn phức tạp/nhiều món thường mất thời gian chuẩn bị lâu hơn và có giá trị cao hơn (quan hệ vận hành hợp lý, không phải lỗi rò rỉ dữ liệu vì KPT không được tính trực tiếp từ Bill subtotal). Khuyến mãi đứng thứ 3: đơn có khuyến mãi **đi cùng** hóa đơn gốc cao hơn (trung bình ₹797 so với ₹676 ở đơn không có khuyến mãi, đơn `Delivered`).
 
-**Cross-Validation (5-fold):** Accuracy trung bình **68.3% (± 0.7%)** — ổn định, khớp với kết quả đo 1 lần (68.7%).
+**Cross-Validation (5-fold):** Accuracy trung bình **68.5% (± 0.6%)** — ổn định, khớp với kết quả đo 1 lần (68.5%).
 
 **SHAP Summary Plot** (`chart_ml_shap_summary_zomato.png`): `has_discount` là biến nhị phân nên đọc được màu: điểm đỏ (có khuyến mãi) tập trung về phía phải, tức đơn có khuyến mãi gắn với xác suất "giá trị hóa đơn gốc cao" lớn hơn.
 
