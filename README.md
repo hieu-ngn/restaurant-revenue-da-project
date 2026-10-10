@@ -1,3 +1,4 @@
+
 # Analysis of Factors Affecting Restaurant Revenue on Food Delivery Platforms
 
 ### Phân tích các yếu tố ảnh hưởng đến doanh thu nhà hàng trên nền tảng giao đồ ăn
@@ -12,36 +13,36 @@ Chi tiết: xem [`docs/project_objectives.md`](docs/project_objectives.md) và [
 
 File dashboard: [`powerbi/Dashboard_projectNITC.pbix`](powerbi/Dashboard_projectNITC.pbix) · Bản PDF 5 trang: [`powerbi/Dashboard_projectNITC.pdf`](powerbi/Dashboard_projectNITC.pdf)
 
-| Trang | Nội dung |
-|---|---|
-| Key Drivers | Bảng tổng hợp mức độ liên hệ của từng yếu tố với doanh thu, cùng chỉ số tập trung doanh thu của Top 3 nhà hàng |
-| Chowdeck Revenue | Doanh thu, AOV, số đơn theo nhóm món, giờ, thứ, khu vực, nhà hàng; độ trễ giao hàng |
-| Rating & Giao hàng | Rating, thời gian chuẩn bị/giao, phân bố độ trễ |
-| Zomato | Doanh thu, AOV, khuyến mãi, trạng thái đơn, thời gian chuẩn bị món (KPT) |
-| So sánh thị trường | So sánh các KPI dạng tỷ lệ giữa Nigeria và Ấn Độ (không so sánh số tuyệt đối giữa ₦ và ₹) |
+| Trang                  | Nội dung                                                                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Key Drivers            | Bảng tổng hợp mức độ liên hệ của từng yếu tố với doanh thu, cùng chỉ số tập trung doanh thu của Top 3 nhà hàng |
+| Chowdeck Revenue       | Doanh thu, AOV, số đơn theo nhóm món, giờ, thứ, khu vực, nhà hàng; độ trễ giao hàng                                  |
+| Rating & Giao hàng    | Rating, thời gian chuẩn bị/giao, phân bố độ trễ                                                                            |
+| Zomato                 | Doanh thu, AOV, khuyến mãi, trạng thái đơn, thời gian chuẩn bị món (KPT)                                                 |
+| So sánh thị trường | So sánh các KPI dạng tỷ lệ giữa Nigeria và Ấn Độ (không so sánh số tuyệt đối giữa ₦ và ₹)                      |
 
 ### Ảnh chụp dashboard
 
-| Key Drivers | Chowdeck Revenue |
-|---|---|
+| Key Drivers                                         | Chowdeck Revenue                                              |
+| --------------------------------------------------- | ------------------------------------------------------------- |
 | ![Key Drivers](powerbi/dashboard_1_key_drivers.png) | ![Chowdeck Revenue](powerbi/dashboard_2_chowdeck_revenue.png) |
 
-| Rating & Giao hàng | Zomato |
-|---|---|
+| Rating & Giao hàng                                             | Zomato                                    |
+| --------------------------------------------------------------- | ----------------------------------------- |
 | ![Rating & Giao hàng](powerbi/dashboard_3_rating_delivery.png) | ![Zomato](powerbi/dashboard_4_zomato.png) |
 
-| So sánh thị trường |
-|---|
+| So sánh thị trường                                               |
+| -------------------------------------------------------------------- |
 | ![So sánh thị trường](powerbi/dashboard_5_market_comparison.png) |
 
 > Khi mở `.pbix`, cần sửa tham số `DataFolder` (Home → Transform data → Manage Parameters) thành thư mục trên máy bạn chứa đủ 4 file CSV: `chowdeck_clean.csv`, `zomato_clean.csv` (trong `data/clean/`) và `chowdeck_kpi_summary.csv`, `zomato_kpi_summary.csv` (trong `outputs/kpi_summary/`), rồi bấm Refresh.
 
 ## Dataset sử dụng (2 dataset)
 
-| Dataset | Thị trường | Vai trò | Nguồn |
-|---|---|---|---|
-| Chowdeck Order Delivery Details | Nigeria | Phân tích chính: Revenue, AOV, Rating, thời gian giao hàng, khu vực, khung giờ | Nội bộ project |
-| Zomato Order History | Ấn Độ (Delhi NCR) | Phân tích bổ sung: tác động của khuyến mãi lên số đơn & AOV, trạng thái đơn | [Kaggle](https://www.kaggle.com/datasets/sujalsuthar/food-delivery-order-history-data) |
+| Dataset                         | Thị trường        | Vai trò                                                                                     | Nguồn                                                                                |
+| ------------------------------- | -------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Chowdeck Order Delivery Details | Nigeria              | Phân tích chính: Revenue, AOV, Rating, thời gian giao hàng, khu vực, khung giờ        | Nội bộ project                                                                      |
+| Zomato Order History            | Ấn Độ (Delhi NCR) | Phân tích bổ sung: tác động của khuyến mãi lên số đơn & AOV, trạng thái đơn | [Kaggle](https://www.kaggle.com/datasets/sujalsuthar/food-delivery-order-history-data) |
 
 Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/data_dictionary_zomato.md`.
 
@@ -63,7 +64,7 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 - 61,1% đơn có khuyến mãi; AOV của đơn có khuyến mãi (₹665) thấp hơn đơn không có (₹710).
 - Dữ liệu không có nhóm đối chứng hay biến động theo thời gian, nên **chưa đủ cơ sở kết luận khuyến mãi tạo thêm đơn**.
 
-**Machine Learning:** Random Forest phân loại "đơn giá trị cao" (Chowdeck: Accuracy 77,7%, CV 76,2%; Zomato: 68,7%, CV 68,3%). Xem `docs/ml_summary.md` (kèm các giới hạn diễn giải).
+**Machine Learning:** Random Forest phân loại "đơn giá trị cao" (Chowdeck: Accuracy 77,7%, CV 76,2%; Zomato: 68,7%, CV 68,3%). Kiểm tra bổ sung (baseline, ablation, permutation importance) cho thấy ở Chowdeck model gần như không học thêm gì ngoài `Order Category`; ở Zomato `KPT duration` đóng góp rõ nhất. Xem `docs/ml_summary.md` (kèm các giới hạn diễn giải).
 
 ## Cấu trúc thư mục
 
@@ -83,26 +84,24 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 
 ## Notebook
 
-| Thứ tự | Notebook | Nội dung |
-|---|---|---|
-| 1 | `01a_chowdeck_cleaning` → `01b_chowdeck_eda` → `01c_chowdeck_kpi` | Chowdeck: làm sạch, EDA, KPI |
-| 2 | `02a_zomato_cleaning` → `02b_zomato_eda` → `02c_zomato_kpi` | Zomato: làm sạch, EDA, KPI |
-| 3 | `03_chowdeck_ml` | Random Forest + Cross-Validation + SHAP (Chowdeck) |
-| 4 | `04_zomato_ml` | Random Forest + Cross-Validation + SHAP (Zomato) |
-| 5 | `05_statistical_tests` | Kiểm định thống kê (ANOVA, Kruskal-Wallis, Mann-Whitney, eta²) cho các yếu tố ảnh hưởng đến giá trị đơn |
-
-`01_chowdeck_cleaning_eda` và `02_zomato_cleaning_eda` là bản gộp cũ của các notebook a/b ở trên, đã được chuyển vào `notebooks/archive/` và không còn nằm trong pipeline chính.
+| Thứ tự | Notebook                                                                  | Nội dung                                                                                                                 |
+| -------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 1        | `01a_chowdeck_cleaning` → `01b_chowdeck_eda` → `01c_chowdeck_kpi` | Chowdeck: làm sạch, EDA, KPI                                                                                            |
+| 2        | `02a_zomato_cleaning` → `02b_zomato_eda` → `02c_zomato_kpi`       | Zomato: làm sạch, EDA, KPI                                                                                              |
+| 3        | `03_chowdeck_ml`                                                        | Random Forest + Cross-Validation + SHAP (Chowdeck)                                                                        |
+| 4        | `04_zomato_ml`                                                          | Random Forest + Cross-Validation + SHAP (Zomato)                                                                          |
+| 5        | `05_statistical_tests`                                                  | Kiểm định thống kê (ANOVA, Kruskal-Wallis, Mann-Whitney, eta²) cho các yếu tố ảnh hưởng đến giá trị đơn |
 
 ## Tiến độ hiện tại
 
-- [x] Business questions & objectives
-- [x] Data dictionary
-- [x] Data cleaning plan
-- [x] Data cleaning + EDA bằng Python
-- [x] Định nghĩa KPI chính thức (`docs/kpi_definitions.md`)
-- [x] Power BI dashboard
-- [x] Machine Learning (Random Forest + Cross-Validation + SHAP)
-- [x] Key insights & Business recommendations (`docs/key_insights.md`, `docs/recommendations.md`)
+- [X] Business questions & objectives
+- [X] Data dictionary
+- [X] Data cleaning plan
+- [X] Data cleaning + EDA bằng Python
+- [X] Định nghĩa KPI chính thức (`docs/kpi_definitions.md`)
+- [X] Power BI dashboard
+- [X] Machine Learning (Random Forest + Cross-Validation + SHAP)
+- [X] Key insights & Business recommendations (`docs/key_insights.md`, `docs/recommendations.md`)
 - [ ] Báo cáo & thuyết trình cuối cùng (bản nháp đã có trong `report/`, cần rà soát sau khi sửa dashboard)
 
 ## Cách chạy lại notebook
