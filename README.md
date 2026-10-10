@@ -10,11 +10,31 @@ Chi tiết: xem [`docs/project_objectives.md`](docs/project_objectives.md) và [
 
 ## Dashboard Power BI
 
-| Key Drivers of Revenue | Chowdeck – Tổng quan doanh thu |
-|---|---|
-| ![Key Drivers](powerbi/dashboard_key_drivers.png) | ![Chowdeck overview](powerbi/dashboard_chowdeck_overview.png) |
+File dashboard: [`powerbi/Dashboard_projectNITC.pbix`](powerbi/Dashboard_projectNITC.pbix) · Bản PDF 5 trang: [`powerbi/Dashboard_projectNITC.pdf`](powerbi/Dashboard_projectNITC.pdf)
 
-File dashboard: [`powerbi/Dashboard_NITC_Revenue_Drivers_Analysis.pbix`](powerbi/Dashboard_NITC_Revenue_Drivers_Analysis.pbix) (bản PDF đầy đủ 5 trang cùng thư mục).
+| Trang | Nội dung |
+|---|---|
+| Key Drivers | Bảng tổng hợp mức độ liên hệ của từng yếu tố với doanh thu, cùng chỉ số tập trung doanh thu của Top 3 nhà hàng |
+| Chowdeck Revenue | Doanh thu, AOV, số đơn theo nhóm món, giờ, thứ, khu vực, nhà hàng; độ trễ giao hàng |
+| Rating & Giao hàng | Rating, thời gian chuẩn bị/giao, phân bố độ trễ |
+| Zomato | Doanh thu, AOV, khuyến mãi, trạng thái đơn, thời gian chuẩn bị món (KPT) |
+| So sánh thị trường | So sánh các KPI dạng tỷ lệ giữa Nigeria và Ấn Độ (không so sánh số tuyệt đối giữa ₦ và ₹) |
+
+### Ảnh chụp dashboard
+
+| Key Drivers | Chowdeck Revenue |
+|---|---|
+| ![Key Drivers](powerbi/dashboard_1_key_drivers.png) | ![Chowdeck Revenue](powerbi/dashboard_2_chowdeck_revenue.png) |
+
+| Rating & Giao hàng | Zomato |
+|---|---|
+| ![Rating & Giao hàng](powerbi/dashboard_3_rating_delivery.png) | ![Zomato](powerbi/dashboard_4_zomato.png) |
+
+| So sánh thị trường |
+|---|
+| ![So sánh thị trường](powerbi/dashboard_5_market_comparison.png) |
+
+> Khi mở `.pbix`, cần sửa tham số `DataFolder` (Home → Transform data → Manage Parameters) thành thư mục trên máy bạn chứa đủ 4 file CSV: `chowdeck_clean.csv`, `zomato_clean.csv` (trong `data/clean/`) và `chowdeck_kpi_summary.csv`, `zomato_kpi_summary.csv` (trong `outputs/kpi_summary/`), rồi bấm Refresh.
 
 ## Dataset sử dụng (2 dataset)
 
@@ -56,7 +76,7 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 ├── outputs/
 │   ├── charts/         # Biểu đồ EDA & ML (PNG)
 │   └── kpi_summary/    # Bảng KPI tổng hợp mỗi dataset
-├── powerbi/            # Dashboard Power BI (.pbix, PDF, ảnh chụp)
+├── powerbi/            # Dashboard Power BI (.pbix, PDF, ảnh chụp 5 trang)
 ├── report/             # Báo cáo (project_report.md) & outline thuyết trình (presentation_outline.md) — bản nháp
 └── requirements.txt
 ```
