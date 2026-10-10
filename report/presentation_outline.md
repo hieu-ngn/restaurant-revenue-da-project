@@ -63,7 +63,7 @@
 - *(Dùng ảnh sau khi dashboard đã sửa xong.)*
 
 ## Slide 11: Machine Learning (1:00)
-- Random Forest phân loại "đơn giá trị cao": Chowdeck 77,7% (CV 76,2%), Zomato 68,7% (CV 68,3%).
+- Random Forest phân loại "đơn giá trị cao": Chowdeck 77,5% (CV 76,2%), Zomato 68,5% (CV 68,5%).
 - Nhóm món dẫn đầu nhưng phần lớn là hiển nhiên; Rating chỉ 3%.
 - **Nói:** model chỉ để xếp hạng tương đối, không để dự đoán từng đơn; mức quan trọng không phải nhân quả.
 - **Hình:** `chart_ml_feature_importance_chowdeck.png`.

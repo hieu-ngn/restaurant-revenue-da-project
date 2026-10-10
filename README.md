@@ -64,7 +64,7 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 - 61,1% đơn có khuyến mãi; AOV của đơn có khuyến mãi (₹665) thấp hơn đơn không có (₹710).
 - Dữ liệu không có nhóm đối chứng hay biến động theo thời gian, nên **chưa đủ cơ sở kết luận khuyến mãi tạo thêm đơn**.
 
-**Machine Learning:** Random Forest phân loại "đơn giá trị cao" (Chowdeck: Accuracy 77,7%, CV 76,2%; Zomato: 68,7%, CV 68,3%). Kiểm tra bổ sung (baseline, ablation, permutation importance) cho thấy ở Chowdeck model gần như không học thêm gì ngoài `Order Category`; ở Zomato `KPT duration` đóng góp rõ nhất. Xem `docs/ml_summary.md` (kèm các giới hạn diễn giải).
+**Machine Learning:** Random Forest phân loại "đơn giá trị cao" (Chowdeck: Accuracy 77,5%, CV 76,2%; Zomato: 68,5%, CV 68,5%). Kiểm tra bổ sung (baseline, ablation, permutation importance) cho thấy ở Chowdeck model gần như không học thêm gì ngoài `Order Category`; ở Zomato `KPT duration` đóng góp rõ nhất. Xem `docs/ml_summary.md` (kèm các giới hạn diễn giải).
 
 ## Cấu trúc thư mục
 

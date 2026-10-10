@@ -231,15 +231,15 @@ Doanh thu theo thứ cao nhất vào Thứ Tư (₦4,04 triệu) và thấp nh�
 
 | | Accuracy | Precision | Recall | F1 | CV 5-fold (Accuracy) |
 |---|---|---|---|---|---|
-| Chowdeck | 77,7% | 83,3% | 63,0% | 71,8% | 76,2% ± 1,1% |
-| Zomato | 68,7% | 68,3% | 69,3% | 68,8% | 68,3% ± 0,7% |
+| Chowdeck | 77,5% | 82,5% | 63,4% | 71,7% | 76,2% ± 1,0% |
+| Zomato | 68,5% | 68,2% | 69,1% | 68,6% | 68,5% ± 0,6% |
 
 ![Feature importance Chowdeck](../outputs/charts/chart_ml_feature_importance_chowdeck.png)
 ![SHAP Chowdeck](../outputs/charts/chart_ml_shap_summary_chowdeck.png)
 
 **Diễn giải:**
-- **Chowdeck:** Nhóm món (33,9%) và tên shop (22,5%) đứng đầu, **nhưng đây phần lớn là điều hiển nhiên** vì chúng gần như quyết định mức giá, và `Shop Name` chỉ lặp lại thông tin của nhóm món (các shop cùng nhóm không khác nhau). Rating chỉ 3,0%.
-- **Zomato:** thời gian chuẩn bị (KPT) quan trọng nhất (50,4%): đơn lớn nấu lâu hơn, đây là hệ quả vận hành. Khuyến mãi đứng thứ 3 (10,3%).
+- **Chowdeck:** Nhóm món (35,4%) và tên shop (20,8%) đứng đầu, **nhưng đây phần lớn là điều hiển nhiên** vì chúng gần như quyết định mức giá, và `Shop Name` chỉ lặp lại thông tin của nhóm món (các shop cùng nhóm không khác nhau). Rating chỉ 3,1%.
+- **Zomato:** thời gian chuẩn bị (KPT) quan trọng nhất (50,5%): đơn lớn nấu lâu hơn, đây là hệ quả vận hành. Khuyến mãi đứng thứ 3 (10,1%).
 - Model chỉ dùng để **xếp hạng tương đối**, không dùng để dự đoán chính xác từng đơn, và mức quan trọng của Random Forest không chứng minh quan hệ nhân quả.
 - Không đọc màu SHAP của các biến phân loại đã mã hóa (nhóm món, shop, khu vực, thứ) vì thứ tự mã số không có ý nghĩa.
 
