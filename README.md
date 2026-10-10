@@ -89,8 +89,9 @@ Chi tiết cấu trúc dữ liệu: `docs/data_dictionary_chowdeck.md`, `docs/da
 | 2 | `02a_zomato_cleaning` → `02b_zomato_eda` → `02c_zomato_kpi` | Zomato: làm sạch, EDA, KPI |
 | 3 | `03_chowdeck_ml` | Random Forest + Cross-Validation + SHAP (Chowdeck) |
 | 4 | `04_zomato_ml` | Random Forest + Cross-Validation + SHAP (Zomato) |
+| 5 | `05_statistical_tests` | Kiểm định thống kê (ANOVA, Kruskal-Wallis, Mann-Whitney, eta²) cho các yếu tố ảnh hưởng đến giá trị đơn |
 
-`01_chowdeck_cleaning_eda` và `02_zomato_cleaning_eda` là bản gộp cũ của các notebook a/b ở trên.
+`01_chowdeck_cleaning_eda` và `02_zomato_cleaning_eda` là bản gộp cũ của các notebook a/b ở trên, đã được chuyển vào `notebooks/archive/` và không còn nằm trong pipeline chính.
 
 ## Tiến độ hiện tại
 
